@@ -1,0 +1,27 @@
+# Laravel specific
+/vendor
+/node_modules
+/public/storage
+/storage/*.key
+/.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+
+# Laravel 5 & Lumen specific
+.env.testing
+
+# IDE specific
+/.idea
+/.vscode
+
+# System specific
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.lock
+
+# NPM
+npm-debug.log
+yarn-error.log
