@@ -55,9 +55,10 @@ $tasks = [
   ),
 ];
 
-Route::get('/', function () use ($tasks) {
+Route::get('tasks/', function () use ($tasks) {
     return view('index', [
-        'tasks' => $tasks
+		'tasks' => $tasks,
+		'name' => 'John Doe'
     ]);
 })->name('tasks.index');
 
@@ -69,9 +70,16 @@ Route::get('/', function () use ($tasks) {
 //     // return redirect('/about');
 // });
 
-Route::get('/{id}', function ($id) {
-    return 'Task with id ' . $id;
+Route::get('task/{id}', function ($id) use ($tasks) {
+	$task = collect($tasks)->firstWhere('id', $id);
+	if(!$task){
+		abort(404);
+	}
+	return view('show', [
+		'task' => $task
+	]);
 })->name('tasks.show');
+
 
 Route::fallback(function () {
     return 'We dont have that route';
