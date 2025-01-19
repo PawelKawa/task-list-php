@@ -9,7 +9,11 @@
 <body>
 	<h1>@yield('title')</h1>
 	<div>
+		@if (session('msg'))
+			<div>{{ session('msg') }}</div>
+		@endif
 		@yield('content')
+		@yield('styles')
 	</div>
 </body>
 </html>
