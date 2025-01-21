@@ -10,13 +10,13 @@ Route::get('tasks/', function () {
     ]);
 })->name('tasks.index');
 
-Route::get('task/{id}/edit', function ($id) {
+Route::get('tasks/{id}/edit', function ($id) {
 	return view('edit', [
 		'task' => \App\Models\Task::findOrFail($id)
 	]);
 })->name('tasks.edit');
 
-Route::get('task/{id}', function ($id) {
+Route::get('tasks/{id}', function ($id) {
 	return view('show', [
 		'task' => \App\Models\Task::findOrFail($id)
 	]);

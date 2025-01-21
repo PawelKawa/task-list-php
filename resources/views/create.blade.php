@@ -14,21 +14,21 @@
 		@csrf
 		<div class="form-group">
 			<label for="title">Title</label>
-			<input type="text" name="title" id="title" class="form-control">
+			<input type="text" name="title" id="title" value="{{old('title')}}" class="form-control">
 			@error('title')
 				<div class="error-message">{{ $message }}</div>
 			@enderror
 		</div>
 		<div class="form-group">
 			<label for="description">Description</label>
-			<textarea name="description" id="description" class="form-control"></textarea>
+			<textarea name="description" id="description" value="{{old('description')}}" class="form-control"></textarea>
 			@error('description')
 				<div class="error-message">{{ $message }}</div>
 			@enderror
 		</div>
 		<div class="form-group">
 			<label for="long_description">Long description</label>
-			<textarea name="long_description" id="long_description" class="form-control"></textarea>
+			<textarea name="long_description" id="long_description" value="{{old('long_description')}}" class="form-control"></textarea>
 			@error('long_description')
 				<div class="error-message">{{ $message }}</div>
 			@enderror
