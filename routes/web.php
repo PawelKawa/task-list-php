@@ -31,13 +31,18 @@ Route::get('tasks/{task}/edit', function (Task $task) {
 	]);
 })->name('tasks.edit');
 
-Route::put('/task/{task}', function (Task $task, TaskRequest $request) {
+Route::put('/tasks/{task}', function (Task $task, TaskRequest $request) {
     $task->update($request->validated());
     return redirect()->route('tasks.show', ['task' => $task->id])
         ->with('msg', 'Task Updated!');
 })->name('tasks.update');
 // test
 
+Route::delete('/tasks/{task}', function (Task $task) {
+	$task->delete();
+	return redirect()->route('tasks.index')
+		->with('msg', 'Task Deleted!');
+})->name('tasks.destroy');
 
 Route::fallback(function () {
     return 'We dont have that route';
