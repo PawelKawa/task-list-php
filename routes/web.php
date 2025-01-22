@@ -36,7 +36,7 @@ Route::put('/task/{task}', function (Task $task, TaskRequest $request) {
     return redirect()->route('tasks.show', ['task' => $task->id])
         ->with('msg', 'Task Updated!');
 })->name('tasks.update');
-
+// test
 
 
 Route::fallback(function () {
